@@ -181,6 +181,7 @@ Want to contribute? See [DEVELOPMENT.md](DEVELOPMENT.md) for setup instructions.
 ```bash
 git clone https://github.com/pinchtab/pinchtab.git
 cd pinchtab
+./doctor.sh                 # Check your environment (optional)
 ./setup.sh                  # Installs git hooks, downloads deps
 go build ./cmd/pinchtab     # Build pinchtab binary
 ```

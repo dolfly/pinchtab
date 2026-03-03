@@ -13,10 +13,13 @@
 git clone https://github.com/pinchtab/pinchtab.git
 cd pinchtab
 
-# 2. Setup (installs git hooks, downloads deps)
+# 2. Check environment (optional but recommended)
+./doctor.sh
+
+# 3. Setup (installs git hooks, downloads deps)
 ./setup.sh
 
-# 3. Build and run
+# 4. Build and run
 go build ./cmd/pinchtab
 ./pinchtab
 ```
@@ -43,7 +46,21 @@ This will:
 - Download Go dependencies
 - Verify your environment
 
-### 3. (Optional) Install golangci-lint
+### 3. Verify environment (optional)
+
+Check your development environment anytime:
+
+```bash
+./doctor.sh
+```
+
+This checks:
+- ✅ Go version (critical: 1.25+)
+- ⚠️  golangci-lint (recommended)
+- ⚠️  Git hooks installed
+- ⚠️  Node.js / Bun (for dashboard development)
+
+### 4. (Optional) Install golangci-lint
 
 For local linting (recommended):
 
@@ -183,7 +200,8 @@ Validate docs: `./scripts/check-docs-json.sh`
 ## Useful Commands
 
 ```bash
-# Setup
+# Setup & Verification
+./doctor.sh                      # Check development environment
 ./setup.sh                       # Setup dev environment (run once)
 ./scripts/install-hooks.sh       # Re-install git hooks
 
